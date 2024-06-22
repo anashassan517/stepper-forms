@@ -65,7 +65,7 @@ const Step1 = ({ nextStep, handleChange, values }) => {
                     {['< $1,000/mo', '$1,000 - $2,000', '$2,000 - $5,000', '$5,000 - $10,000', '$10,000 - $25,000', '$25,000 +'].map((budget, index) => (
                         <button
                             key={index}
-                            className={`w-full px-4 py-2 text-center text-black rounded border-2 border-gray-100 ${values.budget === budget ? 'bg-slate-200' : 'bg-white-500 hover:bg-slate-100'}`}
+                            className={`w-full px-4 py-4 text-center text-black rounded border-2 border-gray-100 ${values.budget === budget ? 'bg-slate-200' : 'bg-white-500 hover:bg-slate-100'}`}
                             onClick={() => { handleChange('budget', budget); nextStep(); }}
                         >
                             {budget}
@@ -100,39 +100,56 @@ const Step2 = ({ prevStep, nextStep, handleChange, values }) => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen pt-16 bg-gray-100 text-black">
             <h2 className="mb-4 text-2xl font-semibold text-center text-black">Step #2</h2>
+            <h2 className="mb-4 text-2xl font-semibold text-center text-black">Details</h2>
             <p className="mb-6 text-center text-black">We're thrilled at the opportunity to help you grow your business online.</p>
             <div className="w-full max-w-md p-8 bg-white rounded shadow-md">
                 <form className="space-y-4">
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        value={values.name}
-                        onChange={(e) => handleChange('name', e.target.value)}
-                        className={`w-full px-4 py-2 border rounded ${errors.name ? 'border-red-500' : ''}`}
-                    />
-                    {errors.name && <p className="text-red-500">{errors.name}</p>}
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={values.email}
-                        onChange={(e) => handleChange('email', e.target.value)}
-                        className={`w-full px-4 py-2 border rounded ${errors.email ? 'border-red-500' : ''}`}
-                    />
-                    {errors.email && <p className="text-red-500">{errors.email}</p>}
-                    <input
-                        type="text"
-                        placeholder="Phone Number"
-                        value={values.phone}
-                        onChange={(e) => handleChange('phone', e.target.value)}
-                        className={`w-full px-4 py-2 border rounded ${errors.phone ? 'border-red-500' : ''}`}
-                    />
-                    {errors.phone && <p className="text-red-500">{errors.phone}</p>}
-                    <textarea
-                        placeholder="Anything else you'd like to share?"
-                        value={values.message}
-                        onChange={(e) => handleChange('message', e.target.value)}
-                        className="w-full px-4 py-2 border rounded"
-                    />
+                    <div className="space-y-2">
+                        <label htmlFor="name" className="text-sm font-medium text-black">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            value={values.name}
+                            onChange={(e) => handleChange('name', e.target.value)}
+                            className={`w-full px-4 py-2 border rounded ${errors.name ? 'border-red-500' : ''}`}
+                        />
+                        {errors.name && <p className="text-red-500">{errors.name}</p>}
+                    </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="email" className="text-sm font-medium text-black">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            value={values.email}
+                            onChange={(e) => handleChange('email', e.target.value)}
+                            className={`w-full px-4 py-2 border rounded ${errors.email ? 'border-red-500' : ''}`}
+                        />
+                        {errors.email && <p className="text-red-500">{errors.email}</p>}
+                    </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="phone" className="text-sm font-medium text-black">Phone Number</label>
+                        <input
+                            id="phone"
+                            type="text"
+                            value={values.phone}
+                            onChange={(e) => handleChange('phone', e.target.value)}
+                            className={`w-full px-4 py-2 border rounded ${errors.phone ? 'border-red-500' : ''}`}
+                        />
+                        {errors.phone && <p className="text-red-500">{errors.phone}</p>}
+                    </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="message" className="text-sm font-medium text-black">Anything else you'd like to share?</label>
+                        <textarea
+                            id="message"
+                            value={values.message}
+                            onChange={(e) => handleChange('message', e.target.value)}
+                            className="w-full px-4 py-8 border rounded"
+                        />
+                    </div>
+
                     <button
                         type="button"
                         onClick={handleNext}
@@ -154,11 +171,11 @@ const Step3 = ({ prevStep }) => {
                     <div className="mb-4">
                         <img src="/check.png" alt="Checkmark" className="w-16 h-16 mx-auto" />
                     </div>
-                    <h2 className="mb-4 text-2xl font-semibold">Your Request for a Proposal Has Been Submitted!</h2>
-                    <p className="mb-6">Lorem ipsum dolor sit amet consectetur. Tincidunt ultricies dis gravida parturient urna tristique congue.</p>
+                    <h2 className="mb-10 text-2xl font-semibold">Your Request for a Proposal Has Been Submitted!</h2>
+                    <p className="mb-16">Lorem ipsum dolor sit amet consectetur. Tincidunt ultricies dis gravida parturient urna tristique congue.</p>
                     <button
                         onClick={() => window.location.reload()}
-                        className="w-full px-4 py-2 text-center text-white bg-green-500 rounded hover:bg-green-700"
+                        className="w-full px-4 py-4 text-center text-white bg-green-500 rounded hover:bg-green-700"
                     >
                         Return Home
                     </button>
