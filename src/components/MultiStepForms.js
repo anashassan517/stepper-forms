@@ -65,7 +65,7 @@ const Step1 = ({ nextStep, handleChange, values }) => {
                     {['< $1,000/mo', '$1,000 - $2,000', '$2,000 - $5,000', '$5,000 - $10,000', '$10,000 - $25,000', '$25,000 +'].map((budget, index) => (
                         <button
                             key={index}
-                            className={`w-full px-4 py-4 text-center text-black rounded border-2 border-gray-100 ${values.budget === budget ? 'bg-slate-200' : 'bg-white-500 hover:bg-slate-100'}`}
+                            className={`w-full px-4 py-3 text-center text-black rounded border-2 border-gray-100 ${values.budget === budget ? 'bg-slate-200' : 'bg-white-500 hover:bg-slate-100'}`}
                             onClick={() => { handleChange('budget', budget); nextStep(); }}
                         >
                             {budget}
@@ -98,13 +98,13 @@ const Step2 = ({ prevStep, nextStep, handleChange, values }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen pt-16 bg-gray-100 text-black">
+        <div className="flex flex-col items-center justify-center min-h-screen pt-24 bg-gray-100 text-black">
             <h2 className="mb-4 text-2xl font-semibold text-center text-black">Step #2</h2>
-            <h2 className="mb-4 text-2xl font-semibold text-center text-black">Details</h2>
+            <h2 className="mb-2 text-1xl font-semibold text-center text-black">Details</h2>
             <p className="mb-6 text-center text-black">We're thrilled at the opportunity to help you grow your business online.</p>
-            <div className="w-full max-w-md p-8 bg-white rounded shadow-md">
-                <form className="space-y-4">
-                    <div className="space-y-2">
+            <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
+                <form className="space-y-2">
+                    <div className="space-y-1">
                         <label htmlFor="name" className="text-sm font-medium text-black">Name</label>
                         <input
                             id="name"
@@ -146,7 +146,7 @@ const Step2 = ({ prevStep, nextStep, handleChange, values }) => {
                             id="message"
                             value={values.message}
                             onChange={(e) => handleChange('message', e.target.value)}
-                            className="w-full px-4 py-8 border rounded"
+                            className="w-full px-4 py-6 border rounded"
                         />
                     </div>
 
